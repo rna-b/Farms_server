@@ -149,6 +149,29 @@ app.post("/ceateNewUser", (req, res) => {
         });
       });
   });
+  app.post("/findOneByName", (req, res) => {
+    const name = req.body.name;
+  
+    USER_MODEL.findOne({ name })
+      .then((result) => {
+        if (!result) {
+          res.status(404).json({
+            error: true,
+            message: "User not found",
+          });
+        } else {
+          res.status(200).json({
+            user: result,
+          });
+        }
+      })
+      .catch((e) => {
+        res.status(500).json({
+          error: true,
+          errorMessage: e.message,
+        });
+      });
+  });
 
   
 
