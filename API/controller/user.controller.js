@@ -138,7 +138,9 @@ const whatsMYName = (req, res) => {
     fullName: name + " " + lastName,
   });
 }
-   const findAllById= (req, res) => {
+
+
+const findAllById = (req, res) => {
   const id = req.body.id;
   USER_MODEL.findOne({ _id: id })
     .then((result) => {
@@ -154,7 +156,8 @@ const whatsMYName = (req, res) => {
     });
 }
 
-   
+
+
 
 module.exports = {
   createNewUser,
@@ -164,9 +167,5 @@ module.exports = {
   findAllByName,
   findOneByName,
   updateUser,
-  deleteUser , 
-  
- 
-  
-
+  deleteUser,
 }
